@@ -8,7 +8,7 @@ module "vpc" {
 
   name                 = "education"
   cidr                 = "10.0.0.0/16"
-  azs                  = ["us-east-2a", "us-east-2b", "us-east-2c"]
+  azs                  = ["us-east-2a", "us-east-2b"]
   public_subnets       = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
   enable_dns_hostnames = true
   enable_dns_support   = true
@@ -59,7 +59,7 @@ resource "aws_db_parameter_group" "education" {
 provider "random" {}
 
 resource "random_pet" "random" {
-  length = 1
+  length = 2
 }
 
 resource "aws_db_instance" "education" {
